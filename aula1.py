@@ -48,7 +48,7 @@ salario = 2800
 
 bonus = 500
 
-print("Salário total: ", salario + bonus)
+print(f"Salário total: {salario + bonus}")
 
 #ex8
 
@@ -87,3 +87,11 @@ def personagem(nome, classe, nivel, vida, ataque, defesa, possui_magica):
 personagem("Luiz", "Guerreiro", 15, 150, 50, 30, True )
 
 
+
+#bdbsdfbkjsdbs
+
+# number = 0
+
+# for sequencia in range(number):
+#      print()
+    
