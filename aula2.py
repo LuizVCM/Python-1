@@ -49,7 +49,7 @@ print(f"livros atuais disponíveis: {livrosDispiniveis}")
 print("------------------------------------------------------------------")
 # n1 = 7.5
 # n2 = 8.0
-# n3 = 9.5
+# n3 = 9.5l
 
 nomeAlunos = "Bereceu"
 notaAlunoos = [7.5, 8.0, 9.5]
