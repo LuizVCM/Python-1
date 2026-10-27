@@ -78,6 +78,7 @@ while situacao == "nota inválida":
 print(f"nota {notasss} registrada com sucesso!")
 
 # 7
+print("----------------------------------------------------------------------")
 while True:
 
     print("Escolha uma ds opções abaixo: \n")
@@ -107,3 +108,49 @@ while True:
 
     else:
         print("Opção inválida!")
+
+# ex8
+print("----------------------------------------------------------------------")
+saldo = 500.00
+contador_depositos = 0
+contador_saques = 0
+
+while True:
+    print("1 - Consultar saldon\n")
+    print("2 - Depositar dinheiro")
+    print("3 - Sacar dinheiro")
+    print("0 - Sair")
+    
+    opcao = input("\nEscolha uma opção: ")
+    
+    if opcao == "1":
+        print(f"Seu saldo atual é: R$ {saldo:.2f}")
+        
+    elif opcao == "2":
+        valor = float(input("Digite o valor que deseja depositar: R$ "))
+        if valor > 0:
+            saldo += valor
+            contador_depositos += 1
+            print(f"Depósito de R$ {valor:.2f} realizado com sucesso!")
+        else:
+            print("Erro: O valor do depósito deve ser maior que zero.")
+            
+    elif opcao == "3":
+        valor = float(input("Digite o valor que deseja sacar: R$ "))
+        if valor <= 0:
+            print("Erro: O valor do saque deve ser maior que zero.")
+        elif valor > saldo:
+            print("Erro: Saldo insuficiente para realizar esta operação.")
+        else:
+            saldo -= valor
+            contador_saques += 1
+            print(f"Saque de R$ {valor:.2f} realizado com sucesso!")
+            
+    elif opcao == "0":
+        print("\nSaindo do caixa eletrônico. Obrigado por utilizar nossos serviços!")
+        print(f"Total de depósitos realizados: {contador_depositos}")
+        print(f"Total de saques realizados: {contador_saques}")
+        break
+        
+    else:
+        print("Erro: Opção inválida. Por favor, escolha uma opção válida do menu.")
