@@ -158,4 +158,58 @@ while True:
 
     else:
         print("Opção inválida! Tente novamente.")
-    
+
+# 9
+pontuacoes = []
+
+while True:
+    print("\n--- MENU ---")
+    print("1 - Registrar pontuação")
+    print("2 - Mostrar relatório")
+    print("3 - Desfazer o último registro")
+    print("0 - Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == '1':
+        while True:
+                pontv = int(input("Digite a pontuação (0 a 100): "))
+                if 0 <= pontv <= 100:
+                    pontuacoes.append(pontv)
+                    print("Pontuação registrada com sucesso!")
+                    break
+                else:
+                    print("Erro: O valor deve estar entre 0 e 100.")
+
+    elif opcao == '2':
+        if len(pontuacoes) == 0:
+            print("Não há missões registradas.")
+        else:
+            quantidade = len(pontuacoes)
+            total = sum(pontuacoes)
+            media = total / quantidade
+            maior = max(pontuacoes)
+
+            acima_ou_igual_70 = sum(1 for p in pontuacoes if p >= 70)
+
+            print("\n--- RELATÓRIO DE MISSÕES ---")
+            print(f"Pontuações na ordem de registro: {pontuacoes}")
+            print(f"Quantidade de missões: {quantidade}")
+            print(f"Total de pontos: {total}")
+            print(f"Média das pontuações: {media:.2f}")
+            print(f"Maior pontuação: {maior}")
+            print(f"Missões com pelo menos 70 pontos: {acima_ou_igual_70}")
+
+    elif opcao == '3':
+        if len(pontuacoes) == 0:
+            print("Não há registro para desfazer.")
+        else:
+            removido = pontuacoes.pop()
+            print(f"Registro desfeito com sucesso! Pontuação removida: {removido}")
+
+    elif opcao == '0':
+        print("Encerrando o programa. Até logo!")
+        break
+
+    else:
+        print("Opção inválida! Por favor, escolha uma opção válida do menu.")
