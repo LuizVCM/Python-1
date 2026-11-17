@@ -82,12 +82,119 @@ class Produto:
     def repor(self):
         quantidade = int(input("Quantas unidades deseja repor? "))
         self.estoque += quantidade
-        self.valor *= self.estoque
-        return self.estoque
+        return "estoque:", self.estoque
 
     def vender(self):
         quantidade = int(input("Quantas unidades deseja vender?"))
-        self.estoque -= quantidade
+        
+        if self.estoque <=0 or quantidade >self.estoque:
+            return "Não foi possível efetuar"
+        else:
+            self.estoque -= quantidade
+            return self.estoque
+    def total(self):
+        total = self.quantidade * self.estoque
+        return "total:", total 
+
+produto1 = Produto(5.00, 4)
+
+print(produto1.vender())
+print(produto1.repor())
+
+print(f"Estoque completo: {produto1.estoque} com {produto1.estoque*produto1.valor} reais")
+
+# 5
+print("------------------------------------------------------------")
+class Livro:
+    def __init__(self, titulo):
+        self.titulo = titulo
+        self.emprestado = False
+
+    def emprestar(self):
+        if not self.emprestado:
+            self.emprestado = True
+            return True
+        return False
+
+    def devolver(self):
+        if self.emprestado:
+            self.emprestado = False
+            return True
+        return False
+    
+livro1 = Livro("Teste 1")
+print(livro1.emprestar())  
+print(livro1.emprestar())  
+print(livro1.devolver())   
+print(livro1.devolver())
+
+# 6
+print("-----------------------------------------------")
+
+class Turma:
+    def __init__(self, nome):
+        self.nome = nome
+        self.alunos = [] 
+
+    def matricular(self, nome_aluno):
+        self.alunos.append(nome_aluno)
+
+t1 = Turma("Matemática")
+t1.matricular("Ana")
+print(t1.nome, t1.alunos)
+
+# 7
+print("----------------------------------------------------")
+
+class Produto:
+    def __init__(self, nome, valor, estoque):
+        self.nome = nome
+        self.valor = valor
+        self.estoque = estoque
+
+produtos = [
+    Produto("Caderno", 10.0, 2),
+    Produto("Caneta", 3.0, 0),
+    Produto("Borracha", 2.0, 5)
+]
+
+total = 0
+sem_estoque = 0
+
+for p in produtos:
+    valor_total_prod = p.valor * p.estoque
+    total += valor_total_prod
+    if p.estoque == 0:
+        sem_estoque += 1
+    print(f"{p.nome} - Estoque: {p.estoque} - Valor em estoque: {valor_total_prod}")
+
+print(f"Total geral: {total}")
+print(f"Produtos sem estoque: {sem_estoque}")
+
+# 8
+class Conta:
+    def __init__(self, titular):
+        self.titular = titular
+        self.saldo = 0.0
+
+    def depositar(self, valor):
+        if valor > 0:
+            self.saldo += valor
+            return True
+        return False
+
+    def sacar(self, valor):
+        if 0 < valor <= self.saldo:
+            self.saldo -= valor
+            return True
+        return False
+
+c = Conta("Alice")
+print(c.depositar(50))  
+print(c.sacar(20))      
+print(c.sacar(40))      
+print(c.saldo)          
+    
         
         
 
